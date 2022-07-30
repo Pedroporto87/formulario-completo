@@ -1,5 +1,5 @@
 import React from 'react';
-import {Formulario} from './FormContext';
+import { Formulario } from './FormContext';
 import './App.css';
 
 function App() {
