@@ -1,5 +1,5 @@
-import React from 'react'
-import {  useState } from 'react';
+import React,{  useState } from 'react'
+
 
 export const Formulario = () =>{
 const [ form, setForm ] = useState({
@@ -9,13 +9,13 @@ const [ form, setForm ] = useState({
   email:'',
   senha: '',
 })
-const [ cep, setCep ] = useState('')
+const [ cep, setCep ] = useState({})
 
 function handleCep(cep){
-    fetch(`https://ws.apicep.com/cep/${cep}.json`)
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
     .then((response) => response.json())
     .then((data) => {
-      setCep(data)
+      setCep(data) 
     })    
 }
 function handleChange(event){
@@ -49,22 +49,25 @@ function handleChange(event){
     <br />
     <label id='password'>Senha</label>
     <input type='password' id='password' placeholder='******' value={form.senha} 
-    required onChange={()=>setForm({handleChange})} />
+    onChange={()=>setForm({handleChange})} />
     <br />
     <label id='cep'>Cep</label>
     <input type='text' id='cep' placeholder='Insira seu cep' value={cep.value} required 
     onChange={(event) => handleCep(event.target.value)} />
     <br />
     <label id='rua'>Rua</label>
-    <input type='text' id='rua' value={cep.address} />
+    <input type='text' id='rua' value={cep.logradouro} />
     <br />
     <label id='cidade'>Cidade</label>
-    <input type='text' id='cidade' value={cep.city} />
+    <input type='text' id='cidade' value={cep.localidade} />
     <br />
     <label id='bairro'>Bairro</label>
-    <input type='text'id='bairro'  value={cep.district} />
+    <input type='text'id='bairro'  value={cep.bairro} />
     <br />
-    <button className='botão'>Envie Aqui</button>
+    <div className='botao-box'>
+      <button className='botão'>Envie Aqui</button>
+      <button className='limpar' onClick={() =>setCep({})}>Limpar</button>
+    </div>
   </form>
   
   )
