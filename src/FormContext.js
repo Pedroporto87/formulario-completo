@@ -29,40 +29,43 @@ function handleChange(event){
  }
  
  return (
-  <form onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit} className='Formulario-card'>
+    <h1 className='Titulo'>Cadastre-se Aqui!</h1>
     <label id='name'>Nome:</label>
     <input type='text' id='name' placeholder='Insira seu nome' value={form.nome} 
     onChange={()=> setForm({handleChange})} />
     <br />
     <label id='telefone'>Telefone</label>
-    <input type='tel' placeholder='(00)0000-0000' value={form.telefone} 
+    <input type='tel' id='telefone' placeholder='(00)0000-0000' value={form.telefone} 
     onChange={() => setForm({handleChange})} />
     <br />
     <label id='cpf'>CPF</label>
-    <input type='text' placeholder='000.000.000-00' value={form.cpf} 
+    <input type='text' id='cpf' placeholder='000.000.000-00' value={form.cpf} 
     onChange={()=>setForm({handleChange})} />
     <br />
     <label id='email'>E-mail</label>
-    <input type='email' placeholder='aaa@aaa.com' value={form.email}
+    <input type='email' id='email' placeholder='aaa@aaa.com' value={form.email}
     onChange={()=> setForm({handleChange})} />
     <br />
     <label id='password'>Senha</label>
-    <input type='password' placeholder='******' value={form.senha} 
+    <input type='password' id='password' placeholder='******' value={form.senha} 
     required onChange={()=>setForm({handleChange})} />
     <br />
     <label id='cep'>Cep</label>
-    <input type='text' placeholder='Insira seu cep' value={cep.value} required 
+    <input type='text' id='cep' placeholder='Insira seu cep' value={cep.value} required 
     onChange={(event) => handleCep(event.target.value)} />
     <br />
     <label id='rua'>Rua</label>
-    <input type='text' value={cep.address} />
+    <input type='text' id='rua' value={cep.address} />
     <br />
     <label id='cidade'>Cidade</label>
-    <input type='text' value={cep.city} />
+    <input type='text' id='cidade' value={cep.city} />
     <br />
     <label id='bairro'>Bairro</label>
-    <input type='text' value={cep.district} />
+    <input type='text'id='bairro'  value={cep.district} />
     <br />
+    <button className='botão'>Envie Aqui</button>
   </form>
+  
   )
 }
